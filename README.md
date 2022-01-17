@@ -3,27 +3,6 @@ A Proof-Of-Concept pour la récente vulnérabilité trouvée CVE-2021-44228 vuln
 Log4j, a java logging library largement utilisée en elasticsearch, minecraft et autres.
 
 
-
-Démo: 
-----------------------------------------
-
-Vuln Web App:
-
-https://user-images.githubusercontent.com/87979263/146113359-20663eaa-555d-4d60-828d-a7f769ebd266.mp4
-
-<br>
-
-Ghidra (Old script):
-
-https://user-images.githubusercontent.com/87979263/145728478-b4686da9-17d0-4511-be74-c6e6fff97740.mp4
-
-<br>
-
-Minecraft PoC (Old script):
-
-https://user-images.githubusercontent.com/87979263/145681727-2bfd9884-a3e6-45dd-92e2-a624f29a8863.mp4
-
-
 Proof-of-concept (POC)
 ----------------------
 
